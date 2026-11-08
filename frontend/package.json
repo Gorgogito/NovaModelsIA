@@ -9,7 +9,8 @@
     "preview": "vite preview",
     "tauri": "tauri",
     "tour": "node e2e/tour.mjs",
-    "tour:tauri": "node e2e/tour.mjs --tauri"
+    "tour:tauri": "node e2e/tour.mjs --tauri",
+    "build:app": "node scripts/build-app.mjs"
   },
   "dependencies": {
     "@tauri-apps/api": "^2",

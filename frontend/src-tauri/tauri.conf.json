@@ -33,9 +33,6 @@
       "icons/icon.icns",
       "icons/icon.ico"
     ],
-    "resources": {
-      "../../backend/dist/nova-backend/": "backend/"
-    },
     "shortDescription": "Plataforma local para crear, entrenar y administrar modelos de IA",
     "windows": {
       "nsis": {

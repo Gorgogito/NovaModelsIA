@@ -49,8 +49,10 @@ Los recorridos dejan capturas e informe en `frontend/e2e/screenshots*/report.htm
 
 ```
 cd backend  && python -m uv run python build_exe.py   # dist/nova-backend/ (nova-backend.exe + uv.exe, ~120 MB)
-cd frontend && npm run tauri build                    # instalador NSIS en src-tauri/target/release/bundle/nsis/
+cd frontend && npm run build:app                      # instalador NSIS en src-tauri/target/release/bundle/nsis/
 ```
+
+Usa `npm run build:app`, no `npm run tauri build`: el segundo no incluye el backend y la app instalada no podría arrancarlo. El script avisa si falta construir antes el backend. Si cambias el icono, ejecuta `touch src-tauri/build.rs` antes de compilar: Cargo no vuelve a incrustar el icono cuando solo cambia el `.ico`.
 
 PyTorch no va dentro del instalador: cada motor se instala en el primer uso con el `uv.exe` incluido (necesita internet esa vez). En la app instalada los datos van a `%LOCALAPPDATA%\NovaModelsIA`; la variable `NOVA_DATA` permite elegir otro disco (conviene un SSD: los modelos pesan decenas de GB y cargan lento desde un disco duro).
 
