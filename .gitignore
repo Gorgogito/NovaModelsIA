@@ -1,0 +1,29 @@
+# Datos de la aplicación: entornos de los motores, modelos, proyectos y base de datos (decenas de GB).
+# Se recrean desde la propia aplicación.
+data/
+
+# Python
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+backend/build/
+backend/dist/
+
+# Node / Tauri
+node_modules/
+frontend/dist/
+frontend/src-tauri/target/
+frontend/src-tauri/gen/
+
+# Resultados de las pruebas locales (se regeneran con `npm run tour` y `npm run tour:tauri`)
+frontend/e2e/screenshots/
+frontend/e2e/screenshots-tauri/
+
+# Datasets de ejemplo generados por los scripts de backend/samples
+backend/samples/*.jsonl
+
+# Registros y archivos del sistema
+*.log
+.DS_Store
+Thumbs.db
