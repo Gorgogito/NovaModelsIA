@@ -1,0 +1,24 @@
+[project]
+name = "nova-backend"
+version = "0.1.0"
+description = "Orquestador local de NovaModelsIA"
+requires-python = ">=3.12"
+dependencies = [
+  "fastapi>=0.115",
+  "uvicorn[standard]>=0.30",
+  "psutil>=6.0",
+  "nvidia-ml-py>=12.0",
+  "pydantic>=2.8",
+  "pillow>=10.0",
+  "uv>=0.5",
+  "soundfile>=0.12",
+  "python-multipart>=0.0.9",
+  "huggingface_hub>=0.24",
+]
+
+[dependency-groups]
+dev = ["pytest>=8.0", "httpx>=0.27", "openai>=1.40", "pyinstaller>=6.10"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
