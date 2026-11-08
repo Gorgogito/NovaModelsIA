@@ -1,0 +1,9 @@
+diffusers
+transformers
+accelerate
+peft
+safetensors
+bitsandbytes
+pillow
+numpy
+huggingface_hub
