@@ -299,3 +299,17 @@ def test_uv_command_errors_clearly_when_missing(monkeypatch, tmp_path):
     monkeypatch.setattr(sys, "frozen", True, raising=False)       # empaquetado: no hay `python -m uv` al que recurrir
     with pytest.raises(RuntimeError, match="No se encontró uv"):
         envs.uv_command()
+
+
+def test_installed_app_keeps_data_apart_from_program_files(monkeypatch, tmp_path):
+    """El instalador pone el programa en una carpeta de LOCALAPPDATA: los datos no pueden ir en esa misma carpeta."""
+    import sys
+
+    from nova import config
+
+    monkeypatch.setenv("LOCALAPPDATA", str(tmp_path))
+    monkeypatch.setattr(config, "FROZEN", True)
+    data = config._default_data_dir()
+    install_dir = tmp_path / "NovaModelsIA"
+    assert data == tmp_path / "NovaModelsIA-data"
+    assert data != install_dir and install_dir not in data.parents and data not in install_dir.parents

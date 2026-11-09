@@ -54,7 +54,7 @@ cd frontend && npm run build:app                      # instalador NSIS en src-t
 
 Usa `npm run build:app`, no `npm run tauri build`: el segundo no incluye el backend y la app instalada no podría arrancarlo. El script avisa si falta construir antes el backend. Si cambias el icono, ejecuta `touch src-tauri/build.rs` antes de compilar: Cargo no vuelve a incrustar el icono cuando solo cambia el `.ico`.
 
-PyTorch no va dentro del instalador: cada motor se instala en el primer uso con el `uv.exe` incluido (necesita internet esa vez). En la app instalada los datos van a `%LOCALAPPDATA%\NovaModelsIA`; la variable `NOVA_DATA` permite elegir otro disco (conviene un SSD: los modelos pesan decenas de GB y cargan lento desde un disco duro).
+PyTorch no va dentro del instalador: cada motor se instala en el primer uso con el `uv.exe` incluido (necesita internet esa vez). La app instalada vive en `%LOCALAPPDATA%\NovaModelsIA` y sus datos en `%LOCALAPPDATA%\NovaModelsIA-data` (carpetas separadas: desinstalar o actualizar no toca tus modelos ni proyectos); la variable `NOVA_DATA` permite elegir otro disco (conviene un SSD: los modelos pesan decenas de GB y cargan lento desde un disco duro).
 
 ## API local compatible con OpenAI
 

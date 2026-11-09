@@ -9,8 +9,10 @@ ROOT = Path(__file__).resolve().parents[2]
 
 
 def _default_data_dir() -> Path:
-    if FROZEN:  # app instalada: los datos no pueden vivir junto al código
-        return Path(os.environ.get("LOCALAPPDATA", Path.home())) / "NovaModelsIA"
+    if FROZEN:
+        # App instalada: el instalador de Tauri usa %LOCALAPPDATA%\NovaModelsIA para el programa, así que los
+        # datos (decenas de GB) van en una carpeta hermana: no se mezclan y desinstalar/actualizar no los toca.
+        return Path(os.environ.get("LOCALAPPDATA", Path.home())) / "NovaModelsIA-data"
     return ROOT / "data"  # desarrollo: carpeta data/ del repositorio
 
 
