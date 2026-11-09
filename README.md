@@ -43,7 +43,7 @@ cd frontend && npm run tour                   # recorre todas las pantallas en E
 cd frontend && npm run tour:tauri             # lo mismo dentro de la ventana real de Tauri
 ```
 
-Los recorridos dejan capturas e informe en `frontend/e2e/screenshots*/report.html`. Detectan errores de consola, peticiones fallidas y desbordes. `tour:tauri` necesita el puerto 8765 libre. Con `TAURI_EXE=ruta\frontend.exe` prueba un ejecutable de release.
+Los recorridos dejan capturas e informe en `frontend/e2e/screenshots*/report.html`. Detectan errores de consola, peticiones fallidas y desbordes. `tour:tauri` necesita el puerto 8765 libre. Con `TAURI_EXE=ruta\NovaModelsIA.exe` prueba un ejecutable de release.
 
 ## Empaquetar
 
