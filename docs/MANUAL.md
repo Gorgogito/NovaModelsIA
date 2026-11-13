@@ -67,6 +67,10 @@ Para guardar los datos en otro disco (conviene un SSD, porque los modelos pesan 
 
 ## 4. Recorrido por la interfaz
 
+![Panel: proyectos y recursos del sistema](img/panel.png)
+
+*Panel: proyectos y recursos del sistema.*
+
 La barra lateral izquierda tiene:
 
 - El **selector de proyecto** (arriba).
@@ -140,6 +144,10 @@ Se guarda una **copia limpia** en formato `messages`; tu archivo original no se 
 
 ### 6.2 Importar el dataset
 
+![Datasets: importar un JSONL y lista del proyecto](img/llm-datasets.png)
+
+*Datasets: importar un JSONL y lista del proyecto.*
+
 1. Ve a **Datasets**.
 2. Pulsa **Examinar…** y elige el `.jsonl` (o escribe la ruta a mano).
 3. Escribe un **nombre** y la **licencia del dataset** (por ejemplo, `MIT`; es un dato informativo que queda registrado).
@@ -150,6 +158,10 @@ Verás un mensaje como: *"Importado: 480 filas válidas (12 inválidas, 8 duplic
 Con **Vista previa** ves los primeros ejemplos ya normalizados.
 
 ### 6.3 Entrenar
+
+![Entrenamiento: formulario de un nuevo entrenamiento](img/llm-entrenar.png)
+
+*Entrenamiento: formulario de un nuevo entrenamiento.*
 
 Ve a **Entrenamiento**. Si aparece el aviso amarillo, instala el **motor LLM**.
 
@@ -178,6 +190,10 @@ Pulsa **Iniciar entrenamiento**. El botón está desactivado si no hay motor ins
 
 ### 6.4 Monitorizar
 
+![Monitoreo: pasos, loss, gráfica y registros](img/llm-monitoreo.png)
+
+*Monitoreo: pasos, loss, gráfica y registros.*
+
 En la lista *Entrenamientos* pulsa un trabajo para abrir el **Monitoreo**:
 
 - **Paso** actual / total, **Loss**, **Eval loss** (si hay validación) y **VRAM pico**.
@@ -195,6 +211,10 @@ Botones de cada trabajo:
 
 ### 6.5 Probar el modelo (Inferencia)
 
+![Inferencia: cargar un modelo y chatear](img/llm-inferencia.png)
+
+*Inferencia: cargar un modelo y chatear.*
+
 1. Ve a **Inferencia**.
 2. Elige *Modelo base (sin adaptador)* o un **Entrenamiento #N** completado.
 3. Si eliges el modelo base, puedes escribir el identificador de Hugging Face.
@@ -204,6 +224,10 @@ Botones de cada trabajo:
 Truco para comprobar que tu entrenamiento sirvió: haz la **misma pregunta** al modelo base y a tu entrenamiento, y compara.
 
 ### 6.6 Evaluar (Evaluación)
+
+![Evaluación: elegir dataset y modelos a comparar](img/llm-evaluacion.png)
+
+*Evaluación: elegir dataset y modelos a comparar.*
 
 La evaluación mide la pérdida y la **perplejidad** sobre la respuesta esperada, y compara la respuesta generada con la de referencia (**F1 de palabras** y **coincidencia exacta**).
 
@@ -256,6 +280,10 @@ Como guía: 50–100 imágenes por clase ya dan buenos resultados con *fine-tuni
 
 ### 7.2 Pestaña Datos
 
+![Visión → Datos: importar una carpeta por clase](img/vision-datos.png)
+
+*Visión → Datos: importar una carpeta por clase.*
+
 1. Ve a **Visión → Datos** (instala el motor si es la primera vez).
 2. **Examinar…** y elige la carpeta raíz (`mis_imagenes`).
 3. Pon un nombre y la licencia, y pulsa **Importar**.
@@ -263,6 +291,10 @@ Como guía: 50–100 imágenes por clase ya dan buenos resultados con *fine-tuni
 Las imágenes válidas se copian al proyecto. Los avisos aparecen en la lista *Datasets de imágenes*.
 
 ### 7.3 Pestaña Entrenar
+
+![Visión → Entrenar: modelo y parámetros](img/vision-entrenar.png)
+
+*Visión → Entrenar: modelo y parámetros.*
 
 | Campo | Qué es | Valor por defecto |
 |---|---|---|
@@ -289,9 +321,17 @@ Pulsa **Iniciar** y sigue el monitoreo (pérdida, precisión de validación). Un
 
 ### 7.4 Pestaña Evaluar
 
+![Visión → Evaluar: matriz de confusión y métricas por clase (datos de demostración; en un caso real rara vez saldrá 100 %)](img/vision-matriz.png)
+
+*Visión → Evaluar: matriz de confusión y métricas por clase (datos de demostración; en un caso real rara vez saldrá 100 %).*
+
 Elige un modelo entrenado y un dataset **con imágenes que no se usaron para entrenar** (importa otro con las mismas clases). Se calculan métricas y se muestra la **matriz de confusión** (qué clases se confunden entre sí) y las métricas por clase. Pulsa una fila de resultados para verlas.
 
 ### 7.5 Pestaña Probar
+
+![Visión → Probar: cargar un clasificador y subir una imagen](img/vision-probar.png)
+
+*Visión → Probar: cargar un clasificador y subir una imagen.*
 
 Elige un clasificador entrenado, pulsa **Cargar**, sube una imagen y verás la clase predicha. **Descargar** libera la VRAM.
 
@@ -340,9 +380,17 @@ Con unas decenas de minutos de audio bien transcrito ya se nota el ajuste.
 
 ### 8.2 Pestaña Datos
 
+![Audio → Datos: importar clips con transcripción](img/audio-datos.png)
+
+*Audio → Datos: importar clips con transcripción.*
+
 **Audio → Datos** (instala el motor si hace falta) → **Examinar…** → nombre y licencia → **Importar**. Se valida cada clip y se avisa de los problemas.
 
 ### 8.3 Pestaña Entrenar
+
+![Audio → Entrenar: fine-tuning de Whisper](img/audio-entrenar.png)
+
+*Audio → Entrenar: fine-tuning de Whisper.*
 
 | Campo | Qué es | Valor por defecto |
 |---|---|---|
@@ -361,9 +409,17 @@ Modelos: **tiny** (39 M, muy rápido, precisión limitada), **base** (74 M, buen
 
 ### 8.4 Pestaña Evaluar
 
+![Audio → Evaluar: WER y CER](img/audio-evaluar.png)
+
+*Audio → Evaluar: WER y CER.*
+
 Mide **WER** (tasa de error de palabras) y **CER** (de caracteres) sobre texto normalizado, sin mayúsculas ni puntuación. **Menos es mejor.** Usa clips que no hayan intervenido en el entrenamiento (si no, la app avisa de que el WER estará subestimado). Puedes comparar el modelo base con tus entrenamientos.
 
 ### 8.5 Pestaña Transcribir
+
+![Audio → Transcribir: cargar un modelo y elegir un archivo](img/audio-transcribir.png)
+
+*Audio → Transcribir: cargar un modelo y elegir un archivo.*
 
 1. Elige *Modelo base* o un entrenamiento, y el idioma (o *Detectar idioma*).
 2. Pulsa **Cargar**.
@@ -401,9 +457,17 @@ Orientación: 15–30 imágenes variadas de un mismo estilo o sujeto ya dan resu
 
 ### 9.2 Pestaña Datos
 
+![Imagen → Datos: importar imágenes con descripción](img/imagen-datos.png)
+
+*Imagen → Datos: importar imágenes con descripción.*
+
 **Imagen → Datos** → **Examinar…** → nombre, descripción por defecto (opcional) y **licencia de las imágenes** (¿tienes derecho a entrenar con ellas?) → **Importar**.
 
 ### 9.3 Pestaña Entrenar
+
+![Imagen → Entrenar: parámetros del LoRA](img/imagen-entrenar.png)
+
+*Imagen → Entrenar: parámetros del LoRA.*
 
 | Campo | Qué es | Valor por defecto |
 |---|---|---|
@@ -423,7 +487,11 @@ Escribe un **prompt de validación** que incluya tu palabra clave (por ejemplo `
 
 ### 9.4 Pestaña Generar
 
-1. Elige *Solo el modelo base* o uno de tus LoRA entrenados y pulsa **Cargar**.
+![Imagen → Generar: prompt, semilla y tamaño](img/imagen-generar.png)
+
+*Imagen → Generar: prompt, semilla y tamaño.*
+
+1. Elige *Solo el modelo base* o uno de tus LoRA entrenados y pulsa **Cargar**. Con un LoRA elegido, el control **Fuerza del LoRA** regula cuánto influye (1 = completo, menos = más cercano al modelo base).
 2. Escribe el **prompt**, en inglés (funciona mejor con SD 1.5), con tu palabra clave. Opcionalmente, un *prompt negativo* con lo que quieres evitar.
 3. Ajusta pasos, guidance, semilla, ancho, alto y número de imágenes (128–768 px en la API; en esta pantalla puedes variar el tamaño).
 4. Pulsa **Generar**.
@@ -446,6 +514,10 @@ Genera con el **mismo prompt y la misma semilla** usando el modelo base y cada L
 
 ## 10. Modelos: gestionar lo entrenado
 
+![Modelos: lista de lo entrenado](img/modelos.png)
+
+*Modelos: lista de lo entrenado.*
+
 La pantalla **Modelos** lista los entrenamientos de LLM y de visión del proyecto:
 
 - Identificador, modelo base, motor, estado, fecha y tamaño.
@@ -460,6 +532,10 @@ Arriba verás el espacio total en disco. Revisa esta pantalla de vez en cuando: 
 ---
 
 ## 11. API local compatible con OpenAI
+
+![API local: URL, modelos disponibles y ejemplos](img/api-local.png)
+
+*API local: URL, modelos disponibles y ejemplos.*
 
 Sirve tus modelos a otros programas en `http://127.0.0.1:8765/v1`, solo accesible desde tu equipo. La pantalla **API local** muestra la URL (con botón *Copiar URL*), el modelo cargado ahora (con *Descargar*), los modelos disponibles y ejemplos listos para copiar.
 
